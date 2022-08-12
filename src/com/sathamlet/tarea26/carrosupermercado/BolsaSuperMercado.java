@@ -8,6 +8,7 @@ import java.util.List;
 
 public class BolsaSuperMercado<T extends Producto> implements Ejecutable<T> {
     private List<T> products;
+    private static final int max = 5;
 
     public BolsaSuperMercado() {
         this.products = new ArrayList<>();
@@ -15,7 +16,8 @@ public class BolsaSuperMercado<T extends Producto> implements Ejecutable<T> {
 
     @Override
     public void addProduct(T product) {
-        this.products.add(product);
+        if(this.products.size() < 5)
+            this.products.add(product);
     }
 
     @Override

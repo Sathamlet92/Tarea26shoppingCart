@@ -6,9 +6,16 @@ public class NoPerecible extends Producto{
 
     public NoPerecible() {}
 
-    public NoPerecible(int content, int calorie) {
+    public NoPerecible(String name, Double price) {
+        super(name, price);
+
+    }
+
+    public NoPerecible(String name, Double price, int content, int calorie) {
+        this(name, price);
         this.content = content;
         this.calorie = calorie;
+
     }
 
     public int getContent() {

@@ -1,10 +1,7 @@
 package com.sathamlet.tarea26.carrosupermercado;
 
 import com.sathamlet.tarea26.carrosupermercado.interfaces.Ejecutable;
-import com.sathamlet.tarea26.carrosupermercado.model.Color;
-import com.sathamlet.tarea26.carrosupermercado.model.Fruta;
-import com.sathamlet.tarea26.carrosupermercado.model.Limpieza;
-import com.sathamlet.tarea26.carrosupermercado.model.Producto;
+import com.sathamlet.tarea26.carrosupermercado.model.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,10 +19,25 @@ public class Main {
         comprasLimpieza.addProduct(new Limpieza("Pinol", 21.50, "Amonio, etc...", 1));
         comprasLimpieza.addProduct(new Limpieza("Pinol", 21.50, "Amonio, etc...", 1));
 
+        Ejecutable<Lacteo> comprasLacteos = new BolsaSuperMercado<>();
+        comprasLacteos.addProduct(new Lacteo("Leche Santa Clara", 25.50, 2, 75));
+        comprasLacteos.addProduct(new Lacteo("Queso Oaxaca", 68.0, 1, 250));
+        comprasLacteos.addProduct(new Lacteo("Yogurt", 23.20, 4, 110));
+        comprasLacteos.addProduct(new Lacteo("Leche Santa Clara", 25.50, 2, 75));
+        comprasLacteos.addProduct(new Lacteo("Leche Santa Clara", 25.50, 2, 75));
+
+        Ejecutable<NoPerecible> comprasNoprecible = new BolsaSuperMercado<>();
+        comprasNoprecible.addProduct(new NoPerecible("Frijoles enladatado", 22.50, 450, 100));
+        comprasNoprecible.addProduct(new NoPerecible("Lentejas", 18.20, 1000, 100));
+        comprasNoprecible.addProduct(new NoPerecible("Arroz", 21.90, 1000, 170));
+        comprasNoprecible.addProduct(new NoPerecible("Atun", 20.25, 320, 100));
+        comprasNoprecible.addProduct(new NoPerecible("Sardina", 33.50, 490, 100));
+
+
 
 
         var listcomprasFr = comprasFrutas.getProducts();
-        System.out.println("Bolsa de Frutas");
+        System.out.println("Bolsa de Frutas-------------------");
         listcomprasFr.forEach(f -> {
             System.out.println("Nombre: " + f.getName());
             System.out.println("Peso: " + f.getWeight());
@@ -34,12 +46,32 @@ public class Main {
             System.out.println();
         });
         var listcomprasLim = comprasLimpieza.getProducts();
-        System.out.println("Bolsa de limpieza");
+        System.out.println("Bolsa de limpieza-------------");
         listcomprasLim.forEach(l ->{
             System.out.println("Nombre: " + l.getName());
             System.out.println("Peso: " + l.getComponent());
             System.out.println("Litros: " + l.getLiter());
             System.out.println("Precio: " +l.getPrice());
+            System.out.println();
+        });
+
+        var listcomprasLac = comprasLacteos.getProducts();
+        System.out.println("Bolsa de Lacteos---------------");
+        listcomprasLac.forEach(l ->{
+            System.out.println("Nombre: " + l.getName());
+            System.out.println("Cantidad: " + l.getQuanty());
+            System.out.println("Proteinas: " + l.getProteinas());
+            System.out.println("Precio: " +l.getPrice());
+            System.out.println();
+        });
+
+        var listcomprasNP = comprasNoprecible.getProducts();
+        System.out.println("Bolsa de No Perecible---------------");
+        listcomprasNP.forEach(np ->{
+            System.out.println("Nombre: " + np.getName());
+            System.out.println("Contenido: " + np.getContent());
+            System.out.println("Calorias: " + np.getCalorie());
+            System.out.println("Precio: " + np.getPrice());
             System.out.println();
         });
     }
