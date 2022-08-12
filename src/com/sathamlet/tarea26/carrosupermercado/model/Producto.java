@@ -43,10 +43,4 @@ abstract public class Producto {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Id de producto: #" + this.id
-                +"\nNombre: " + this.name
-                +"\nPrecio: " + this.price;
-    }
 }
